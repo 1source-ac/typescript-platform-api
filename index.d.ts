@@ -1,5 +1,6 @@
 /**
- * The main entry point to the platform api.
+ * Wraps all available functions that are callable from within functions
+ * inside of the platform.
  */
 declare interface Platform {
   deployConnector: (connector: ConnectorDescription) => void;
