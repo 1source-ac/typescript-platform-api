@@ -29,7 +29,7 @@ declare interface Platform {
     time?: number
   ) => Promise<any>;
   inquire: Function;
-  makeEntity: (entity: Entity, time: number) => Promise<void>;
+  makeEntity: (entity: Entity, time?: number) => Promise<void>;
 
   init: Function;
 }
