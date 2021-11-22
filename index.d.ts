@@ -8,6 +8,7 @@ declare interface Platform {
   ) => void;
   deployTimer: (...argumentList: any[]) => void;
   addEntity: (id: string, state: any) => void;
+  sql: (query: string, parameters: any) => void;
   store: (key: string, value: any) => void;
   get: (key: string) => Promise<any>;
   log: (...whatToLog: any[]) => void;
