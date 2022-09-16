@@ -11,7 +11,7 @@ declare interface Platform {
   /**
    * Executes sql query and asynchronously returns resulting sql rows.
    */
-  sql: (query: string, parameters: any) => Promise<any[]>;
+  sql: (query: string, parameters?: any) => Promise<any[]>;
   store: (key: string, value: any) => void;
   get: (key: string) => Promise<any>;
   log: (...whatToLog: any[]) => void;
