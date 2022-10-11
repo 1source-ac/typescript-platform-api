@@ -18,6 +18,7 @@ declare interface Platform {
   entity: (id: string) => EntityCursor;
   findEntities: (restrictions: EntityRestrictions) => Promise<any[]>;
   func: (name: string) => any;
+  relate: (first: string | number, type: string, second: string | number) => Promise<void>;
   sendConnectorEvent: (
     connectorId: number,
     type: string,
@@ -33,7 +34,7 @@ declare interface Platform {
     time?: number
   ) => Promise<any>;
   inquire: Function;
-  makeEntity: (entity: Entity, time?: number) => Promise<void>;
+  makeEntity: (entity: Entity, time?: number) => Promise<string | number>;
 
   init: Function;
 }
