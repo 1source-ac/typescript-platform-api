@@ -17,7 +17,7 @@ declare interface Platform {
   log: (...whatToLog: any[]) => void;
   entity: (id: string) => EntityCursor;
   findEntities: (restrictions: EntityRestrictions) => Promise<any[]>;
-  func: (name: string) => any;
+  func: (name: string) => { run: (arg: any) => Promise<any> };
   relate: (first: string | number, type: string, second: string | number) => Promise<void>;
   sendConnectorEvent: (
     connectorId: number,
