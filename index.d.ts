@@ -21,7 +21,7 @@ declare interface Platform {
   store: (key: string, value: any) => void;
 
   /**
-  Returns a Promise that resolves to the value.
+  Returns a Promise that resolves to a value from the platform's storage.
   */
   get: (key: string) => Promise<any>;
 
@@ -36,7 +36,8 @@ declare interface Platform {
   entity: (id: string) => EntityCursor;
 
   /**  
-  Returns an object containing the 'run' method for the function with the specified name.
+  Returns an object containing the 'run' method for the function with the specified name,
+  which allows running the function with specified argument 'arg'.
   */
   func: (name: string) => { run: (arg: any) => Promise<any> };
 
