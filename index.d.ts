@@ -11,16 +11,6 @@ declare interface Platform {
   ) => void;
 
   /**
-  Deploys a timer to the platform with the specified arguments.
-  */
-  deployTimer: (...argumentList: any[]) => void;
-
-  /**
-  Adds an entity with the specified ID and state to the platform.
-  */
-  addEntity: (id: string, state: any) => void;
-
-  /**
   Executes sql query and asynchronously returns resulting sql rows.
   */
   sql: (query: string, parameters?: any) => Promise<any[]>;
@@ -46,11 +36,6 @@ declare interface Platform {
   entity: (id: string) => EntityCursor;
 
   /**  
-  Finds entities based on the specified restrictions and returns a Promise that resolves to an array of matching entities.
-  */
-  findEntities: (restrictions: EntityRestrictions) => Promise<any[]>;
-
-  /**  
   Returns an object containing the 'run' method for the function with the specified name.
   */
   func: (name: string) => { run: (arg: any) => Promise<any> };
@@ -70,16 +55,8 @@ declare interface Platform {
     type: string,
     payload: any
   ) => Promise<void>;
-  /**
   
-  Calls an external API function with the given description and parameters.
-  Returns a Promise that resolves with the API response.
-  */
-  call: (
-    functionCall: APIFunctionCallDescription
-  ) => Promise<any>;
-  /**
-  
+  /**  
   Inserts a state with the specified entityId, property, and value at the given time (optional).
   Returns a Promise that resolves once the state is inserted.
   */
@@ -89,28 +66,13 @@ declare interface Platform {
     value: any,
     time?: number
   ) => Promise<any>;
-  /**
-  
-  Calls an inquire function with the specified arguments.
-  Note: Function signature and behavior are specific to the platform implementation.
-  */
 
-  inquire: Function;
-
-  /**
-  
+  /**  
   Creates an entity with the specified properties and optional time.
   Returns a Promise that resolves to the ID of the created entity.
-  */
+  */  
   makeEntity: (entity: Entity, time?: number) => Promise<string | number>;
-  /**
-  
-  Initializes the platform with the specified settings.
-  Note: Function signature and behavior are specific to the platform implementation.
-  */
-  init: Function;
 }
-
 
 interface ConnectorDescription {
     type: string;
