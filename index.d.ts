@@ -73,6 +73,8 @@ declare interface Platform {
   Returns a Promise that resolves to the ID of the created entity.
   */  
   makeEntity: (entity: Entity, time?: number) => Promise<string | number>;
+
+  insertEntities: (entities: Entity[]) => Promise<EntityId[]>;
 }
 
 interface ConnectorDescription {
@@ -112,6 +114,8 @@ interface Entity {
   name: string;
   state: EntityStateDictionary;
 }
+
+type EntityId = string | number;
 
 interface EntityRestrictions {
   type?: String;
