@@ -18,7 +18,7 @@ declare interface Platform {
   /**
   Stores a key-value pair in the platform's storage.
   */
-  store: (key: string, value: any) => void;
+  store: (key: string, value: any) => Promise<void>;
 
   /**
   Returns a Promise that resolves to a value from the platform's storage.
