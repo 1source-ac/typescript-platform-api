@@ -74,6 +74,9 @@ declare interface Platform {
   */  
   makeEntity: (entity: Entity, time?: number) => Promise<string | number>;
 
+  acquireLock: (key: string) => Promise<boolean>;
+  releaseLock: (name: string) => Promise<void>;
+
   insertEntities: (entities: Entity[]) => Promise<EntityId[]>;
 }
 
